@@ -1,0 +1,11 @@
+{
+  "name": "educator-core-backend",
+  "version": "1.0.0",
+  "description": "Core Backend for Educator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anish Kumar",
+  "license": "ISC"
+}
