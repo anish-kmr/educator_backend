@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const express = require('express')
 const studentRoutes = require('./src/api/student')
 const facultyRoutes = require('./src/api/faculty')
+const schedulesRoutes = require('./src/api/schedules')
 
 
 // admin.initializeApp()
@@ -17,5 +18,6 @@ app.use((req, res, next) => {
   });
 app.use("/student",studentRoutes)
 app.use("/faculty",facultyRoutes)
+app.use("/schedules",schedulesRoutes)
 
 exports.app = functions.https.onRequest(app)

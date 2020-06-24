@@ -27,10 +27,11 @@ router.post('/authenticate',(req, res)=>{
             scheduleFilled = faculty.scheduleFilled
         }
         response.data.scheduleFilled = scheduleFilled
+        response.data.uid = response.data.localId
         return res.json({signedIn:true,user:response.data})
     })
     .catch(err=>{
-        return res.json({signedIn:false,err:err})
+        return res.json({signedIn:false,err:err.response.data.error.message})
     })
 })
 module.exports=router

@@ -10,19 +10,18 @@ class Faculty{
         return db.collection('Faculty').doc(id).get()
         .then(doc => {
            if (doc) {
-               console.log("Doc found")
                 let faculty = doc.data()
-                console.log("Returning faculty",faculty)
                 return new Faculty(id,faculty.name,faculty.email,faculty.scheduleFilled)
-        
            }
            else return null
-           
-           
         }).catch(err=>{
-            console.log("Throwing error")
             throw new Error(err)
         })
+    }
+    static async update(facultyId,newValues){
+        return db.collection('Faculty').doc(facultyId).update(newValues)
+        .then(() =>{ return true})
+        .catch(() =>{return false})
     }
     save(){
         if(this.name === null || this.id === null || this.email === null) throw new Error("Fields can't be Empty")

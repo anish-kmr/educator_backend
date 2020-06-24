@@ -9,10 +9,10 @@ class Student{
     }
     static get(conditions=null){
         if(conditions === null){
-            return db.collection('/Students').get()
+            return db.collection('Students').get()
         }
         else{
-            let query = db.collection('/Students')
+            let query = db.collection('Students')
             conditions.forEach((key,value)=>{
                 query = query.where(key,"==",value)
             })
@@ -23,7 +23,7 @@ class Student{
         if(this.id === null || this.name === null || this.email === null || this.batch === null || this.year === null) throw new Error("Fields can';t be Empty")
         else{
             
-            return db.collection('/Students').doc(this.id).set({
+            return db.collection('Students').doc(this.id).set({
                 name:this.name,
                 batch:this.batch,
                 year:this.year,

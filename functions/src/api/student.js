@@ -33,6 +33,7 @@ router.post('/authenticate',(req, res)=>{
     let password = req.body.password
     auth.signIn(email,password)
     .then(response=>{
+        response.data.uid = response.data.localId
         return res.json({signedIn:true,user:response.data})
     })
     .catch(err=>{
