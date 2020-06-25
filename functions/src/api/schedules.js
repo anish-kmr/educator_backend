@@ -31,5 +31,11 @@ router.post('/',async (req,res)=>{
     })
 })
 
+router.get('/faculty/:id',async (req,res)=>{
+    let id = req.params.id
+    let schedules = await Schedule.get("facultyId","==",id)
+    res.json({schedules: schedules})
+
+})
 
 module.exports = router
